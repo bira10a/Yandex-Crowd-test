@@ -112,34 +112,53 @@ body {
   background-color: $btnColor;
   line-height: 1.3;
   border-radius: 66px;
-  padding: 20px 49px;
+  padding: 14px 49px;
   border: 2px solid transparent;
+  max-width: 263px;
+  width: 100%;
+  text-align: center;
   outline: transparent;
-  transition: color 0.3s linear, background-color;
-
-  &--outline {
-    color: $btnColor;
-    background-color: transparent;
-    border-color: $btnColor;
-
-    &:hover {
-      background-color: $btnColor;
-      color: $white;
-    }
-  }
+  transition: color 0.3s linear, background-color 0.3s linear, transform 0.2s linear;
 
     // &:focus {
       
     // }
 
-    &:hover {
-      background-color: #FBCE51;
-      color: $btnColor;
+    @media (hover: hover) {
+      &:hover {
+        background-color: #FBCE51;
+        color: $btnColor;
+      }
     }
 
-    // &:active {
-      
-    // }
+    @media (hover: none) {
+      &:active {
+        transform: translateY(-5px);
+      }
+    }
+
+    &:active {
+      transform: translateY(-5px);
+    }
+
+    &--outline {
+    color: $btnColor;
+    background-color: transparent;
+    border-color: $btnColor;
+
+    @media (hover: hover){
+      &:hover {
+        background-color: $btnColor;
+        color: $white;
+      }
+    }
+
+    @media (hover: none) {
+      &:active {
+        transform: translateY(-5px);
+      }
+    }
+  }
 }
 
 
@@ -157,14 +176,12 @@ body {
 }
 
 .title {
-  // @extend %ruda-600;
-  // line-height: 1.4;
-  // letter-spacing: 0.03em;
-  // color: $default;
-  // text-align: center;
-  // margin-bottom: 30px;
-  // padding-top: 72px;
-  // text-transform: uppercase;
+  font-family: 'Merriweather', sans-serif;
+  font-weight: 400;
+  font-size: 54px;
+  line-height: 1.2;
+  color: $default;
+  text-transform: uppercase;
 }
 
 

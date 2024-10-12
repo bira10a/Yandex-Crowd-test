@@ -1,285 +1,46 @@
-
-
-.menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 2;
+.header {
+  @extend %bg-img;
+  height: 100vh;
 
   &__container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: rem(29);
+    margin-top: 26px;
     position: relative;
   }
 
   &__logo {
-    padding: rem(5);
-    animation: logo linear 2s;
-    outline: transparent;
-    transition: box-shadow linear 0.2s, opacity linear 0.2s;
-    z-index: 1;
-
-    &:focus {
-      box-shadow: 0 0 0 4px $accent;
-    }
-
-    &:hover {
-      opacity: 0.6;
-    }
-
-    &:active {
-      opacity: 1;
-    }
+    display: inline-block;
+    margin-bottom: 57px;
   }
 
-  &__body {
-    transition: top linear 0.2s, opacity linear 0.6s;
-
-    @media (max-width:$mobile) {
-      position: absolute;
-      top: rem(-500);
-      left: 0;
-      right: 0;
-      opacity: 0;
-    }
-  }
-
-  &__body--active {
-    top: 0;
-    z-index: 10;
-    padding: 30px;
-    background-color: rgb(46, 28, 28);
-    opacity: 1;
-    height: 50vh;
-  }
-
-  &__list {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    @media (max-width:$mobile) {
-      flex-direction: column;
-      margin-top: 40px;
-    }
-  }
-
-  &__item {
-    @include adaptiveValue("margin-right", 40, 10);
-
-    &:last-child {
-      margin: 0;
-    }
-
-    @media (max-width:$mobile) {
-      margin-bottom: 50px;
-      margin-right: 0;
-    }
-  }
-
-  &__link {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-    font-size: rem(18);
-    text-transform: uppercase;
-    opacity: 0.7;
-    padding: rem(5);
-    outline: transparent;
-    transition: box-shadow linear 0.2s, opacity linear 0.2s, color linear 0.2s;
-
-    &:focus {
-      box-shadow: 0 0 0 4px $accent;
-    }
-
-    &:hover {
-      opacity: 1;
-    }
-
-    &:active {
-      color: $accent;
-    }
-  }
-
-  &__icons {
-    display: flex;
-    align-items: center;
-
-    @media (max-width:$mobile) {
-      margin-left: auto;
-      margin-right: rem(28);
-    }
-  }
-
-  &__icons-item {
-    margin-right: rem(28);
-
-    &:last-child {
-      margin-right: 0;
-    }
-  }
-
-  &__form {
-    position: absolute;
-    top: 50px;
-    right: 20px;
-    visibility: hidden;
-    opacity: 0;
-    transition: all linear 0.2s;
-  }
-
-  &__form--active {
-    visibility: visible;
-    opacity: 1;
-  }
-
-  &__form-input {
-    border: 1px solid #333333;
-    border-radius: 6px;
-    color: $accent;
-    padding: 10px;
-    background-color: rgb(27, 27, 27);
-    max-width: rem(300);
-    @include adaptiveValue("max-width", 300, 180);
+  &__info {
+    max-width: 542px;
     width: 100%;
-    outline: transparent;
-    transition: all linear 0.2s;
+  }
 
-    &::placeholder {
-      color: $default;
-      transition: all linear 0.2s;
-    }
+  &__title {
+    font-size: 60px;
+    line-height: 1.1;
+    margin-bottom: 27px;
 
-    &:focus {
-      border-color: rgb(138, 136, 136);
+    div {
+      text-align: center;
 
-      &::placeholder {
-        opacity: 1;
-      }
-    }
-
-    &:hover {
-      &::placeholder {
-        color: $accent;
-      }
-    }
-
-    &:active {
-      &::placeholder {
-        opacity: 0.7;
+      span {
+        margin-left: 33px;
       }
     }
   }
 
-  &__form-btn {
-    background-color: rgb(27, 27, 27);
-    text-transform: uppercase;
-    padding: rem(12);
-    outline: transparent;
-    transition: all linear 0.2s;
-
-    &:focus {
-      box-shadow: 0 0 0 2px #E0EDCF;
-    }
-
-    &:hover {
-      background-color: #dda56d;
-      color: #3f3a3a;
-    }
-
-    &:active {
-      box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.25);
-      color: rgba(255, 255, 255, 0.5);
-    }
+  &__text {
+    font-weight: 400;
+    font-size: 18px;
+    text-align: center; 
+    margin-bottom: 40px; 
   }
 
-  &__icons-btn {
+  &__nav {
     display: flex;
-    justify-content: center;
-    width: rem(35);
-    height: rem(35);
-    border: 2px solid transparent;
-    outline: transparent;
-    transition: all linear 0.2s;
-
-    &::before {
-      content: "";
-      display: block;
-      background-color: #ffffff;
-      margin: auto 0;
-      transition: all linear 0.2s;
-    }
-
-    &:focus {
-      border-color: #e27c54;
-
-      &::before {
-        background-color: $accent;
-      }
-    }
-
-    &:hover {
-      border-color: #e27c54;
-
-      &::before {
-        background-color: $accent;
-      }
-    }
-
-    &:active {
-      opacity: 0.6;
-    }
-  }
-
-  &__icons-btn--search {
-    &::before {
-      width: rem(21);
-      height: rem(22);
-      mask: url('../images/sprite.svg#icon-search') center / cover no-repeat;
-    }
-  }
-
-  &__icons-btn--cart {
-    &::before {
-      width: rem(25);
-      height: rem(25);
-      mask: url('../images/sprite.svg#icon-cart') center / cover no-repeat;
-    }
-  }
-
-  &__basket {
-    opacity: 0;
-    visibility: hidden;
-    transition: all linear 0.2s;
-
-  }
-
-  &__basket--active {
-    opacity: 1;
-    visibility: visible;
+    align-items: center;
+    gap: 16px;
   }
 }
-
-
-.burger {
-  display: none;
-  @include burger;
-  
-  @include r(992) {
-    display: block;
-    z-index: 11;
-    order: 2;
-    @include adaptiveValue("margin-left", 40, 20);
-  }
-}
-
-
-
-
-
-
-// animation: HeaderTitle 1.5s;
-// animation-timing-function: cubic-bezier(0.18, 0.89, 0.32, 1.28);
-// animation-direction: alternate;
