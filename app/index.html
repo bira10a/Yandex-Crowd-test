@@ -11,10 +11,13 @@
   <link rel="stylesheet" href="css/style.min.css">
 </head>
 <body>
-  <header class="header" style="background-image: url('images/bgDesktop1920.png');">
+  <header class="header">
     <div class="header__container">
       <a class="header__logo" href="#" aria-label="логотип">
-        <img src="images/logo.svg" alt="логотип" width="245" height="35">
+        <picture>
+          <source srcset="images/logoMobile.svg" width="213" height="32" media="(max-width: 769px)">
+          <img src="images/logo.svg" alt="логотип" loading="lazy" width="245" height="35">
+        </picture>
       </a>
 
       <div class="header__info">
@@ -33,6 +36,7 @@
   </header>
   
   <main class="main">
+    <section style="height: 100vh; width: 100%;">Hello</section>
   </main>
 
   <footer class="footer">

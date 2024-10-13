@@ -1,15 +1,28 @@
 .header {
+  background-image: url('../images/bgDesktop1920.png');
   @extend %bg-img;
-  height: 100vh;
+  height: 100dvh;
+
+  @media (max-width:$mobileSmall){
+     background-image: url('../images/bgMobile.png'); 
+  }
 
   &__container {
-    margin-top: 26px;
-    position: relative;
+    height: 100dvh;
+    margin-top: rem(26);
+
+    @media (max-width:$mobileSmall){
+        margin-top: rem(18);
+    }
   }
 
   &__logo {
     display: inline-block;
-    margin-bottom: 57px;
+    margin-bottom: rem(57);
+
+    @media (max-width:$mobileSmall){
+       margin-bottom: rem(36); 
+    }
   }
 
   &__info {
@@ -18,29 +31,59 @@
   }
 
   &__title {
-    font-size: 60px;
+    font-size: rem(60);
     line-height: 1.1;
-    margin-bottom: 27px;
+    margin-bottom: rem(27);
+
+    @include r(1366) {
+      @include adaptiveValue("font-size", 60, 36);
+    }
+
+    @media (max-width:$mobileSmall){
+       margin-bottom: rem(25); 
+    }
 
     div {
       text-align: center;
 
       span {
-        margin-left: 33px;
+        margin-left: rem(33);
+      }
+
+      @media (max-width:$mobileSmall){
+         margin-left: rem(7);
+         
+         span {
+            margin-left: rem(22);
+         }
       }
     }
   }
 
   &__text {
     font-weight: 400;
-    font-size: 18px;
+    font-size: rem(18);
     text-align: center; 
-    margin-bottom: 40px; 
+    margin-bottom: rem(40); 
+
+    @media (max-width:$mobileSmall){
+       text-align: start; 
+       margin-bottom: rem(35); 
+    }
   }
 
   &__nav {
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: rem(16);
+
+    @media (max-width:$mobile){
+      flex-direction: column;
+      gap: rem(12);
+
+      a {
+        max-width: 100%;
+      }
+    }
   }
 }

@@ -5,7 +5,7 @@ body {
 
 // НАСТРОЙКИ ===============================================================================================================================================================================================================================================================================================
 // Минимальная ширина страницы
-$minWidth: 320;
+$minWidth: 375;
 // Ширина полотна (макета)
 $maxWidth: 1920;
 // Ширина ограничивающего контейнера (0 = нет ограничения)
@@ -48,6 +48,10 @@ $responsiveType: 1;
 
     @if ($containerPadding>0) {
       padding: 0 rem(math.div($containerPadding, 2));
+    }
+
+    @media (max-width:$mobileSmall){
+       padding: 0 rem(20); 
     }
   }
 }
@@ -119,6 +123,10 @@ body {
   text-align: center;
   outline: transparent;
   transition: color 0.3s linear, background-color 0.3s linear, transform 0.2s linear;
+
+  @media (max-width:$mobileSmall){
+     padding: 12px 35px; 
+  }
 
     // &:focus {
       
