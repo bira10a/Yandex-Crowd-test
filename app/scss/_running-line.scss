@@ -1,0 +1,59 @@
+.running-line {
+  background-color: $accent;
+  font-family: 'Merriweather', sans-serif;
+  font-weight: 400;
+  font-size: rem(22);
+  color: $white;
+  padding: rem(17) rem(12);
+  white-space: nowrap;
+  overflow: hidden;
+  
+  @media (max-width:$mobileSmall){
+    position: relative;
+    top: -38px;
+    padding: rem(6) rem(5); 
+  }
+  
+  &__wrapper {
+    display: flex;
+    gap: rem(12);
+    animation: runningLine 25s linear infinite;
+    will-change: transform;
+  
+    @media (hover: hover) {
+      &:hover {
+        animation-play-state: paused;
+      }
+    }
+  }
+  
+  span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    
+    &::after {
+      content: '';
+      display: inline-block;
+      width: rem(6);
+      height: rem(6);
+      border-radius: 50%;
+      background-color: $white;
+      margin: 0 rem(12);
+    }
+
+    @media (max-width:$mobileSmall){
+       font-size: rem(16); 
+    }
+  }
+}
+
+@keyframes runningLine {
+  0% {
+    transform: translateX(0);
+  }
+  100%{
+    transform: translateX(calc(-100% - 20px));
+  }
+}
