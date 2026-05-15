@@ -1,0 +1,31 @@
+
+
+
+.burger {
+  display: none;
+  @include burger;
+  
+  @include r(992) {
+    display: block;
+    z-index: 11;
+    order: 2;
+    @include adaptiveValue("margin-left", 40, 20);
+  }
+}
+
+
+
+
+@keyframes HeaderTitle {
+  from {
+    transform: translateX(-3000px);
+  }
+
+  to {
+    transform: translateX(0);
+  }
+}
+
+// animation: HeaderTitle 1.5s;
+// animation-timing-function: cubic-bezier(0.18, 0.89, 0.32, 1.28);
+// animation-direction: alternate;
