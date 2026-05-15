@@ -9,5 +9,9 @@
   }
 }
 
-@include font-face(Roboto, Roboto-Regular, 400);
-@include font-face(Roboto, Roboto-Bold, 700);
+@include font-face(Golos, GolosText-Bold, 700);
+@include font-face(Golos, GolosText-Regular, 400);
+@include font-face(Golos, GolosText-Medium, 500);
+@include font-face(Golos, GolosText-SemiBold, 600);
+@include font-face(Merriweather, Merriweather-Regular, 400);
+@include font-face(Merriweather, Merriweather-Bold, 700);
