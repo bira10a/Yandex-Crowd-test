@@ -1,15 +1,19 @@
+@use './mixins';
 
+.header {
+    
+}
 
 
 .burger {
   display: none;
-  @include burger;
+  @include mixins.burger;
   
-  @include r(992) {
+  @include mixins.r(992) {
     display: block;
     z-index: 11;
     order: 2;
-    @include adaptiveValue("margin-left", 40, 20);
+    @include mixins.adaptiveValue("margin-left", 40, 20);
   }
 }
 
