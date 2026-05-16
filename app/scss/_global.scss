@@ -93,11 +93,11 @@ $responsiveType: 1;
 
 body {
   font-family: "Golos", sans-serif;
-  font-weight: 700;
-  font-size: 20px;
+  font-weight: 400;
+  font-size: mixins.rem(20);
   line-height: 1.2;
-  // color: $default;
-  background-color: vars.$default;
+  color: vars.$default-color;
+  background-color: vars.$default-background-color;
   display: flex;
   flex-direction: column;
 }
@@ -110,41 +110,62 @@ body {
   flex-grow: 1;
 }
 
-.container {
-  // max-width: 1320px;
-  // margin: 0 auto;
-  // padding: 0 15px;
-}
+// .container {
+//   // max-width: 1320px;
+//   // margin: 0 auto;
+//   // padding: 0 15px;
+// }
 
 .btn {
-  font-family: 'OpenSans', sans-serif;
-  font-weight: 400;
-  font-size: 18px;
+  font-family: 'Golos', sans-serif;
+  font-weight: 500;
+  font-size: mixins.rem(16);
   line-height: 1.3;
-  letter-spacing: 0.03em;
-  border-radius: 6px;
-  color: vars.$accent;
-  background-color: #63A60E;
-  padding: 12px 24px;
+  border-radius: mixins.rem(66);
+  color: vars.$button-color-secondary;
+  background-color: vars.$button-color-default;
+  padding: 18px 49px;
+  border: 2px solid transparent;
   outline: transparent;
-  transition: box-shadow linear 0.2s, background-color linear 0.2s, color linear 0.2s;
+  transition: background-color linear 0.2s, color linear 0.2s, transform linear 0.2s;;
+
+  &.btn-secondary {
+    background-color: transparent;
+    color: vars.$button-color-default;
+    border-color: vars.$button-color-default;
+  }
 
     &:focus {
-      box-shadow: 0 0 0 4px #E0EDCF;
+        background-color: vars.$button-color-accent;
+        color: vars.$button-color-default;
+
+        &.btn-secondary {
+            background-color: vars.$button-color-default;
+            color: vars.$button-color-secondary;
+        }
     }
 
     &:hover {
-      background-color: #4D810C;
+        background-color: vars.$button-color-accent;
+        color: vars.$button-color-default;
+
+        &.btn-secondary {
+                background-color: vars.$button-color-default;
+                color: vars.$button-color-secondary;
+            }
     }
 
     &:active {
-      box-shadow: inset 0 4px 4px rgba(0, 0, 0, 0.25);
-      color: rgba(255, 255, 255, 0.5);
+      transform: translateY(-10px);
     }
 
-    @include mixins.r(768) {
-      font-size: 14px;
-    }
+    // @include mixins.r(768) {
+    //   font-size: 14px;
+    // }
+}
+
+.links {
+    color: vars.$links-color-default;
 }
 
 
@@ -162,14 +183,11 @@ body {
 }
 
 .title {
-  // @extend %ruda-600;
-  // line-height: 1.4;
-  // letter-spacing: 0.03em;
-  // color: $default;
-  // text-align: center;
-  // margin-bottom: 30px;
-  // padding-top: 72px;
-  // text-transform: uppercase;
+    font-family: 'Merriweather', sans-serif;
+    font-weight: 400;
+    font-size: mixins.rem(54);
+    line-height: 1.2;
+    text-transform: uppercase;
 }
 
 
