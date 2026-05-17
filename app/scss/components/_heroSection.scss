@@ -2,17 +2,17 @@
 @use '../global';
 
 .heroSection {
-    background-image: url('../../images/heroSection/main.png');
+    background-image: url('../../images/heroSection/background.png');
     @extend %bg-img;
     background-position: 0;
 
 
     @media (min-width: 1620px){
-        background-image: url('../../images/heroSection/1920.jpg');
+        background-image: url('../../images/heroSection/background_1920.jpg');
     }
 
     @media (max-width:global.$mobile){
-       background-image: url('../../images/heroSection/375.jpg');
+       background-image: url('../../images/heroSection/background_375.jpg');
        background-position-y: 0;
    }
 
