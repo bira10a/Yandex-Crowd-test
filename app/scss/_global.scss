@@ -5,6 +5,7 @@
 html,
 body {
   height: 100%;
+  overflow-x: hidden;
 }
 
 // НАСТРОЙКИ ===============================================================================================================================================================================================================================================================================================
@@ -13,8 +14,7 @@ $minWidth: 375;
 // Ширина полотна (макета)
 $maxWidth: 1920;
 // Ширина ограничивающего контейнера (0 = нет ограничения)
-//1222 + 30
-$maxWidthContainer: 1252;
+$maxWidthContainer: 1222;
 // Общий отступ у контейнера
 // (30 = по 15px слева и справа, 0 = нет отступа)
 $containerPadding: 30;
@@ -23,10 +23,10 @@ $containerPadding: 30;
 $containerWidth: $maxWidthContainer + $containerPadding;
 
 // Брейк-поинты
-$pc: em($containerWidth); // ПК, ноутбуки, некоторые планшеты в горизонтальном положении
-$tablet: em(991.98); // Планшеты, некоторые телефоны в горизонтальном положении
-$mobile: em(767.98); // Телефоны L
-$mobileSmall: em(479.98); // Телефоны S
+$pc: mixins.em($containerWidth); // ПК, ноутбуки, некоторые планшеты в горизонтальном положении
+$tablet: mixins.em(991.98); // Планшеты, некоторые телефоны в горизонтальном положении
+$mobile: mixins.em(767.98); // Телефоны L
+$mobileSmall: mixins.em(479.98); // Телефоны S
 
 // Тип адаптива:
 // 1 = отзывчивость (у контейнера нет брейкпоинтов),
@@ -53,6 +53,10 @@ $responsiveType: 1;
 
     @if ($containerPadding>0) {
       padding: 0 mixins.rem(math.div($containerPadding, 2));
+    }
+
+    @media (width > 1400px ) {
+        max-width: 1250px;
     }
   }
 }
@@ -125,15 +129,19 @@ body {
   border-radius: mixins.rem(66);
   color: vars.$button-color-secondary;
   background-color: vars.$button-color-default;
-  padding: 18px 49px;
+  padding: 14px 45px;
   border: 2px solid transparent;
   outline: transparent;
-  transition: background-color linear 0.2s, color linear 0.2s, transform linear 0.2s;;
+  transition: background-color linear 0.2s, color linear 0.2s, transform linear 0.2s;
 
   &.btn-secondary {
     background-color: transparent;
     color: vars.$button-color-default;
     border-color: vars.$button-color-default;
+  }
+
+  @media (max-width:$mobile){
+     padding: 12px 35px; 
   }
 
     &:focus {
@@ -190,8 +198,6 @@ body {
     line-height: 1.2;
     text-transform: uppercase;
 }
-
-
 
 .lock {
   overflow: hidden;

@@ -1,4 +1,5 @@
 // @use './mixins';
+@use './global';
 
 .header {
     padding: 25px 0;
@@ -6,6 +7,16 @@
     top: 0;
     left: 0;
     right: 0;
+    margin-left: -15px;
+    z-index: 10;
+
+    @media (max-width: 1300px){
+        padding: 18px 20px;
+    }
+
+    &__link {
+        display: inline-block;
+    }
 }
 
 

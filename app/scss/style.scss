@@ -4,5 +4,12 @@
 @use 'reset';
 @use 'mixins';
 @use 'global';
+
+//Header
 @use 'header';
+
+//heroSection
+@use './components/heroSection';
+
+//Footer
 @use 'footer';
